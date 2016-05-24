@@ -11,6 +11,8 @@ RUN apt-get update -y  && apt-get install -y unzip nano openssl ca-certificates 
 COPY run-vault /usr/bin/run-vault
 COPY config.hcl config.hcl
 COPY vault-ca.conf vault-ca.conf
+COPY cmd.sh cmd.sh
+RUN chmod 777 cmd.sh
 
 #ENTRYPOINT ["run-vault"]
 #CMD ["server", "-config=config.hcl"]

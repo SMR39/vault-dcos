@@ -1,8 +1,8 @@
 #!/bin/sh
   openssl req -newkey rsa:2048 -days 3650 -x509 -nodes -out root.cer \
-    -subj "/CN=IP:172.16.0.2/"
+    -subj "/CN=vault/"
   openssl req -newkey rsa:2048 -nodes -out vault.csr -keyout vault.key \
-    -subj "/CN=IP:172.16.0.2/"
+    -subj "/CN=vault/"
   echo 000a > serialfile
   touch certindex
   openssl ca -batch -config vault-ca.conf -notext -in vault.csr -out vault.crt
