@@ -2,10 +2,10 @@ vault:
   build: .
   ports:
     - "8200:8200"
-  command: bash -c "/usr/bin/run-vault && vault server -config=config.hcl"
+  command: vault server -config=config.hcl
 
 client:
   build: .
-  command: vault init -address=http://vault:8200  -tls-skip-verify
+  command: vault init -address=https://vault:8200  -tls-skip-verify
   links:
     - vault
